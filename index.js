@@ -22,14 +22,13 @@ app.use(cors(corsConfig))
 app.use(express.json())
 
 app.use("/api", rutasLog)
-app.use(authentication)
 
 app.use((req, res, next) => {
     console.log(`Datos recibidos: ${req.method} ${req.url}`)
     next();
 })
 
-app.use("/api", rutasProductos)
+app.use("/api", authentication, rutasProductos)
 
 app.use((req, res, next) => {
     res.status(404).send('Recurso no encontrado o ruta invalida')
