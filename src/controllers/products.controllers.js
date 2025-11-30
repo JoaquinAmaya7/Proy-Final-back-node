@@ -14,7 +14,7 @@ export const deleteProduct = async (req, res) => {
     try{
         const id = req.params.id;
         if(id){
-            await productService.deleteProdcutService(id)
+            await productService.deleteProductService(id)
             res.sendStatus(200)
         }else{
             res.status(400).json(error)
