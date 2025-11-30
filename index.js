@@ -6,6 +6,7 @@ import rutasProductos from "./src/routes/products.routes.js"
 import {authentication} from "./src/midleware/authentication.js"
 
 const app = express()
+const PORT = process.env.PORT || 3000;
 
 const corsConfig = {
     origin: ['http://localhost:3000', 'https//midominio.com'],
@@ -34,5 +35,6 @@ app.use((req, res, next) => {
     res.status(404).send('Recurso no encontrado o ruta invalida')
 })
 
-export const handler = serverless(app);
-export default handler;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`)
+})
