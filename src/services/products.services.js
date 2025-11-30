@@ -5,9 +5,9 @@ export const getAllProductsService = async() => {
         new Promise(async(res, rej) => {
             try{
                 const productos = await obtenerProductos()
+                res(productos);
             }catch(error){
-                console.log(error)
-                rej(error)
+                rej()
             }
         })
     )
